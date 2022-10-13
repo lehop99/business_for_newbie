@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark text-white">
+{{-- <header class="p-3 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -32,4 +32,51 @@
       @endguest
     </div>
   </div>
+</header> --}}
+
+<!--=============== HEADER ===============-->
+<header class="header" id="header">
+  <nav class="nav container">
+      <a href="#" class="nav__logo">LOGO</a>
+
+      <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+              <li class="nav__item">
+                  <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+              <li class="nav__item">
+                  <a href="#about" class="nav__link">About us</a>
+              </li>
+              <li class="nav__item">
+                  <a href="#services" class="nav__link">Category</a>
+              </li>
+              <li class="nav__item">
+                  <a href="#contact" class="nav__link">Forum</a>
+              </li>
+              
+              <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
+     
+              @auth
+                {{auth()->user()->name}}
+                <div>
+                <a href="{{ route('logout.perform') }}" class="button-login">Logout</a>
+                </div>
+              @endauth
+
+              @guest
+                <div class="text-end">
+                <a href="{{ route('login.perform') }}" class="button-login">Login</a>
+                    
+              @endguest
+
+              
+          </ul>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+          <i class='bx bx-grid-alt'></i>
+      </div>
+
+      {{-- <a href="#" class="button button__header">Order Now!</a> --}}
+  </nav>
 </header>
